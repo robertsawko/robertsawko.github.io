@@ -4,7 +4,7 @@
   <title><![CDATA[A Large Tin Box]]></title>
   <link href="http://robertsawko.github.io/atom.xml" rel="self"/>
   <link href="http://robertsawko.github.io/"/>
-  <updated>2015-04-30T21:22:07+01:00</updated>
+  <updated>2015-04-30T22:31:13+01:00</updated>
   <id>http://robertsawko.github.io/</id>
   <author>
     <name><![CDATA[Robert Sawko]]></name>
@@ -20,14 +20,22 @@
     <id>http://robertsawko.github.io/blog/2015/04/30/it-is-alive</id>
     <content type="html"><![CDATA[<p>This is my first post using <a href="http://octopress.org/">octopress</a> i.e. a git based
 blogging engine. At the moment I am just testing various functionalities. Is
-markdown <strong>bold</strong> working? Do we have MathJax?</p>
+markdown <strong>bold</strong> working? Do we have MathJax? Let&rsquo;s try the Boltzmann equation</p>
 
 <div class="Math">
 \begin{equation}
-x^2+y^2=z^2
+\frac{\partial f}{\partial t} 
++ \frac{\mathbf{p}}{m} \cdot \nabla f
++ \mathbf{F} \cdot \frac{\partial f}{\partial \mathbf{p}}
+=
+{\left(\frac{\partial f}{\partial t} \right)}_{\mathrm{collision}}
 \end{equation}
 </div>
 
+
+<p>And to test inline maths we will use $x^{2}+y^{2}=z^{2}$ where $x$, $y$ are
+catheti and $z$ is a hypotenuse of a right triangle. Here I have a ridiculous
+problem of being forced to use curly brackets around each exponent.</p>
 
 <p>We so do (!) although I had to make a tiny alteration to one of the files. The
 procedure is described

@@ -37,6 +37,12 @@ markdown bold &hellip;">
 </head>
 
 <body   >
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript"
+        src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
   <header role="banner"><hgroup>
   <h1><a href="/">A Large Tin Box</a></h1>
   
@@ -88,14 +94,22 @@ markdown bold &hellip;">
 
 <div class="entry-content"><p>This is my first post using <a href="http://octopress.org/">octopress</a> i.e. a git based
 blogging engine. At the moment I am just testing various functionalities. Is
-markdown <strong>bold</strong> working? Do we have MathJax?</p>
+markdown <strong>bold</strong> working? Do we have MathJax? Let&rsquo;s try the Boltzmann equation</p>
 
 <div class="Math">
 \begin{equation}
-x^2+y^2=z^2
+\frac{\partial f}{\partial t} 
++ \frac{\mathbf{p}}{m} \cdot \nabla f
++ \mathbf{F} \cdot \frac{\partial f}{\partial \mathbf{p}}
+=
+{\left(\frac{\partial f}{\partial t} \right)}_{\mathrm{collision}}
 \end{equation}
 </div>
 
+
+<p>And to test inline maths we will use $x^{2}+y^{2}=z^{2}$ where $x$, $y$ are
+catheti and $z$ is a hypotenuse of a right triangle. Here I have a ridiculous
+problem of being forced to use curly brackets around each exponent.</p>
 
 <p>We so do (!) although I had to make a tiny alteration to one of the files. The
 procedure is described
@@ -221,12 +235,6 @@ with stochastic inputs and fluid dynamics problems.</p>
 
 
 
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
-
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
-</script>
-<script type="text/javascript"
-                src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
