@@ -4,7 +4,7 @@
   <title><![CDATA[A Large Tin Box]]></title>
   <link href="http://robertsawko.github.io/atom.xml" rel="self"/>
   <link href="http://robertsawko.github.io/"/>
-  <updated>2015-04-30T22:59:41+01:00</updated>
+  <updated>2015-04-30T23:10:58+01:00</updated>
   <id>http://robertsawko.github.io/</id>
   <author>
     <name><![CDATA[Robert Sawko]]></name>
@@ -20,18 +20,15 @@
     <id>http://robertsawko.github.io/blog/2015/04/30/it-is-alive</id>
     <content type="html"><![CDATA[<p>This is my first post using <a href="http://octopress.org/">octopress</a> i.e. a git based
 blogging engine. At the moment I am just testing various functionalities. Is
-markdown <strong>bold</strong> working? Do we have MathJax? Let&rsquo;s try the Boltzmann equation</p>
+markdown <strong>bold</strong> working? Do we have MathJax? Let’s try the Boltzmann equation</p>
 
-<div class="Math">
-\begin{equation}
+<script type="math/tex; mode=display">\begin{equation}
 \frac{\partial f}{\partial t} 
 + \frac{\mathbf{p}}{m} \cdot \nabla f
 + \mathbf{F} \cdot \frac{\partial f}{\partial \mathbf{p}}
 =
 {\left(\frac{\partial f}{\partial t} \right)}_{\mathrm{collision}}
-\end{equation}
-</div>
-
+\end{equation}</script>
 
 <p>And to test inline maths we will use $x^{2}+y^{2}=z^{2}$ where $x$, $y$ are
 catheti and $z$ is a hypotenuse of a right triangle. Here I have a ridiculous
@@ -49,21 +46,20 @@ to fluid dynamics and coding but other content may appear too. The first few
 steps though I need make is to investigate:</p>
 
 <ul>
-<li>adding sub-pages,</li>
-<li>add contact info,</li>
-<li>test iPython integration,</li>
-<li>check comment functionalities (in the unlikely case someone wants to
+  <li>adding sub-pages,</li>
+  <li>add contact info,</li>
+  <li>test iPython integration,</li>
+  <li>check comment functionalities (in the unlikely case someone wants to
 comment!),</li>
-<li>theme customization.</li>
+  <li>theme customization.</li>
 </ul>
-
 
 <p>Interestingly at this stage the lists were <strong>not</strong> indented properly. Again, I
 found the
 <a href="http://stackoverflow.com/questions/24794024/markdown-list-does-not-indent-using-octopress">instructions</a>
 which fixed it though. During the whole process I was struck by the fact that I
-am overwhelmed by the technological nomenclature. There&rsquo;s lots of concepts here
-I completely don&rsquo;t understand or just heard about for the very first time.
+am overwhelmed by the technological nomenclature. There’s lots of concepts here
+I completely don’t understand or just heard about for the very first time.
 Hopefully this will become less of an impediment as time goes on.</p>
 
 <p>The first actual post to appear is going to be on the introduction to Kraichnan
