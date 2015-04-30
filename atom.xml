@@ -1,16 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[My Octopress Blog]]></title>
+  <title><![CDATA[A Large Tin Box]]></title>
   <link href="http://robertsawko.github.io/atom.xml" rel="self"/>
   <link href="http://robertsawko.github.io/"/>
-  <updated>2015-04-30T20:10:13+01:00</updated>
+  <updated>2015-04-30T21:22:07+01:00</updated>
   <id>http://robertsawko.github.io/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name><![CDATA[Robert Sawko]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[It Is Alive!]]></title>
+    <link href="http://robertsawko.github.io/blog/2015/04/30/it-is-alive/"/>
+    <updated>2015-04-30T20:41:25+01:00</updated>
+    <id>http://robertsawko.github.io/blog/2015/04/30/it-is-alive</id>
+    <content type="html"><![CDATA[<p>This is my first post using <a href="http://octopress.org/">octopress</a> i.e. a git based
+blogging engine. At the moment I am just testing various functionalities. Is
+markdown <strong>bold</strong> working? Do we have MathJax?</p>
+
+<div class="Math">
+\begin{equation}
+x^2+y^2=z^2
+\end{equation}
+</div>
+
+
+<p>We so do (!) although I had to make a tiny alteration to one of the files. The
+procedure is described
+<a href="http://stackoverflow.com/questions/28726152/mathjax-equations-displaying-3-times-jekyll">here</a>.
+This is getting better and better.</p>
+
+<p>The plan is to run this as a little experiment in curiosity, amusement and
+memory of all these little intellectual pursuits which somehow get lost in the
+daily routine of existence. I would like to focus here on the work I do related
+to fluid dynamics and coding but other content may appear too. The first few
+steps though I need make is to investigate:</p>
+
+<ul>
+<li>adding sub-pages,</li>
+<li>add contact info,</li>
+<li>test iPython integration,</li>
+<li>check comment functionalities (in the unlikely case someone wants to
+comment!),</li>
+<li>theme customization.</li>
+</ul>
+
+
+<p>Interestingly at this stage the lists were <strong>not</strong> indented properly. Again, I
+found the
+<a href="http://stackoverflow.com/questions/24794024/markdown-list-does-not-indent-using-octopress">instructions</a>
+which fixed it though. During the whole process I was struck by the fact that I
+am overwhelmed by the technological nomenclature. There&rsquo;s lots of concepts here
+I completely don&rsquo;t understand or just heard about for the very first time.
+Hopefully this will become less of an impediment as time goes on.</p>
+
+<p>The first actual post to appear is going to be on the introduction to Kraichnan
+theory of turbulence which I am reading about at the moment. Will try to
+reproduce some of the results and test iPython integration. Future posts may
+cover some adventures in population balance modelling, partial differential
+with stochastic inputs and fluid dynamics problems.</p>
+]]></content>
+  </entry>
   
 </feed>
