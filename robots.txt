@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: 
+
+Sitemap: http://robertsawko.github.io/sitemap.xml 
