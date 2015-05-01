@@ -46,7 +46,7 @@ MathJax.Hub.Config({
   "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
 });
 </script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
 
   
 
@@ -118,17 +118,19 @@ markdown <strong>bold</strong> working? Do we have MathJax? Let’s try the Bolt
 catheti and $z$ is a hypotenuse of a right triangle. Here I have a ridiculous
 problem of being forced to use curly brackets around each exponent.</p>
 
-<p>MathJax test passed. Although it required me to mess around with some files.
-At the moment I am using the advice given on this
+<p>At this stage I had to fight a small battle which involved messing around with
+some files.  At the moment I am using the advice given on this
 <a href="http://www.idryman.org/blog/2012/03/10/writing-math-equations-on-octopress/">post</a>
-and <em>javascript</em> code-snippets are included in</p>
+with <em>javascript</em> code
+<code>source/_includes/custom/head.html</code>
+which looks like a cleaner solution. But that wasn’t enough. After uploading
+the files on Github Pages they wouldn’t display even though I could see them in
+the preview mode. The reason was the HTTP secure access to MathJax. It’s
+important that CDN address contains <code>https</code> rather than <code>http</code>. There’s a 
+<a href="http://docs.mathjax.org/en/latest/start.html#secure-cdn-access">passage</a> in
+MathJax documentation about it.</p>
 
-<p><code>source/_includes/custom/head.html</code></p>
-
-<p>which looks like a cleaner solution. My local laptop firefox though doesn’t display
-the equations after uploading them on the webpage (work-in-progress).</p>
-
-<p>The plan is to run this as a little experiment in curiosity, amusement and
+<p>MathJax test passed. The plan is to run this as a little experiment in curiosity, amusement and
 memory of all these little intellectual pursuits which somehow get lost in the
 daily routine of existence. I would like to focus here on the work I do related
 to fluid dynamics and coding but other content may appear too. The first few
