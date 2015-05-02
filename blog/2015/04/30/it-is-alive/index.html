@@ -121,10 +121,10 @@ markdown <strong>bold</strong> working? Do we have MathJax?</p>
 <p>To test inline maths we will use $x^2+y^2=z^2$ where $x$, $y$ are catheti
 and $z$ is a hypotenuse of a right triangle.</p>
 
-<p>It works! Although to be truthful it did work out-of-the-box for me. I had to
+<p>It works! Although to be truthful it did not work out-of-the-box. I had to
 fight a small battle messing around with some files. At the moment I am using
 <code>kramdown</code> and CDN according to advice given on this
-<a href="http://www.idryman.org/blog/2012/03/10/writing-math-equations-on-octopress/">post</a>
+<a href="http://www.idryman.org/blog/2012/03/10/writing-math-equations-on-octopress/">post</a>.
 The only difference is that my <em>javascript</em> code landed in</p>
 
 <p><code>source/_includes/custom/head.html</code></p>
@@ -132,12 +132,13 @@ The only difference is that my <em>javascript</em> code landed in</p>
 <p>as it is being sourced by the main head anyway. This looks like a slightly
 cleaner solution.</p>
 
-<p>But even that wasn’t enough. After uploading the files on Github Pages they
-wouldn’t display even though I could see them in the preview mode. The reason
-was the HTTP secure access to MathJax. It’s important that CDN address contains
-<code>https</code> rather than <code>http</code>. There’s a 
+<p>But that wasn’t enough! After uploading the files on Github Pages they wouldn’t
+display even though I could see them in the preview mode. The reason was the
+HTTP secure access to MathJax. It’s important that CDN address contains <code>https</code>
+rather than <code>http</code>. There’s a
 <a href="http://docs.mathjax.org/en/latest/start.html#secure-cdn-access">passage</a> in
-MathJax documentation about it.</p>
+MathJax documentation about it. So much for “setting up a scientific blog in
+half-an-hour”, but I’ve learnt a few things definitely.</p>
 
 <p>MathJax test passed.</p>
 
