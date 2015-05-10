@@ -4,7 +4,7 @@
   <title><![CDATA[A Large Tin Box]]></title>
   <link href="http://robertsawko.github.io/atom.xml" rel="self"/>
   <link href="http://robertsawko.github.io/"/>
-  <updated>2015-05-10T19:51:27+01:00</updated>
+  <updated>2015-05-10T21:51:38+01:00</updated>
   <id>http://robertsawko.github.io/</id>
   <author>
     <name><![CDATA[Robert Sawko]]></name>
@@ -66,7 +66,8 @@ running at the moment.</p>
 </span><span class="line"><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 </span><span class="line"><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div>
-<p>## Population balance equations</p>
+
+<h2 id="population-balance-equations">Population balance equations</h2>
 
 <h3 id="continuous-equations">Continuous equations</h3>
 
@@ -384,7 +385,7 @@ assume that this ratio is the mean value of the original NDF.</p>
 
 <h2 id="class-convergence-for-pure-breakup">Class convergence for pure breakup</h2>
 
-<h3 id="analytical-solutions-for-pure-breakage">Analytical solutions for pure breakage</h3>
+<h3 id="analytical-solutions">Analytical solutions</h3>
 
 <p>Ziff and Mc Grady (1985) study several different breakup kernels. In here we
 focus on their case number 4 which corresponds to a uniform binary breakup.
@@ -466,6 +467,8 @@ e^{-tv_0^2} +
 </span><span class="line">    <span class="k">return</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">t</span> <span class="o">*</span> <span class="n">v0</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> \
 </span><span class="line">        <span class="o">+</span> <span class="n">trapz</span><span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">t</span> <span class="o">*</span> <span class="n">v0</span> <span class="o">*</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">t</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span> <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">)</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<h4 id="numerical-solutions">Numerical solutions</h4>
 <p>We solve the population balance problem for pure breakup. We assume an
 mono-dispersed initial distribution of size $v_0=1$ and we allow it to breakup
 for 10s. We take 10, 20, 40, 80 and 160 classes for that setup.</p>
@@ -540,7 +543,7 @@ solve presently.</p>
 
 <h3 id="class-convergence-for-pure-agglomeration">Class convergence for pure agglomeration</h3>
 
-<h4 id="analytical-solutions">Analytical solutions</h4>
+<h4 id="analytical-solutions-1">Analytical solutions</h4>
 
 <p>Scott (1968) provided a solution for a pure agglomeration case with three
 different coalescence kernels: sum, product and constant. I will only do a
@@ -599,7 +602,7 @@ v_0 = 2v_2
 </span><span class="line">    <span class="k">return</span> <span class="n">N0</span> <span class="o">/</span> <span class="n">v0</span> <span class="o">*</span> <span class="n">phi3</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div>
 
-<h4 id="numerical-solutions">Numerical solutions</h4>
+<h4 id="numerical-solutions-1">Numerical solutions</h4>
 <p>Similarly to previous section we set five different grids and a simulation
 time. We set the simulation time to be smaller as the particles will keep
 increasing its size and therefore can leave our uniform grid if enough time has
