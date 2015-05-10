@@ -4,7 +4,7 @@
   <title><![CDATA[A Large Tin Box]]></title>
   <link href="http://robertsawko.github.io/atom.xml" rel="self"/>
   <link href="http://robertsawko.github.io/"/>
-  <updated>2015-05-10T21:51:38+01:00</updated>
+  <updated>2015-05-10T22:04:58+01:00</updated>
   <id>http://robertsawko.github.io/</id>
   <author>
     <name><![CDATA[Robert Sawko]]></name>
@@ -71,7 +71,7 @@ running at the moment.</p>
 
 <h3 id="continuous-equations">Continuous equations</h3>
 
-<p>A recent review by Solsvik and Jakobsen (2015) give three alternative ways of
+<p>A recent review by Solsvik and Jakobsen (2015) gives three alternative ways of
 deriving population balance equations: through continuum dynamics, from
 Boltzmann equation and through probabilistic arguments. We begin here by
 assuming that these equations are known and that for bubbles or drops we
@@ -137,14 +137,13 @@ of function $n$ which is unknown.</p>
 the smallest drop size to $v_1$ and a fixed number of classes. Class $k$
 represent then the size $v_k = kv_1$.</p>
 
-<p>We will now turn to the closure problem and applying <a href="https://en.wikipedia.org/wiki/Mean_value_theorem#Mean_value_theorems_for_integration]">mean value
-theorem</a>
+<p>We will now turn to the closure problem and applying <a href="https://en.wikipedia.org/wiki/Mean_value_theorem#Mean_value_theorems_for_integration]">mean value theorem</a>
 to the right hand side terms. For simplicity we will do only the breakage terms
 i.e. the second and the fourth terms. For the first term it gives us:</p>
 
-<p>\begin{gather}
-\int_{v_i}^{v_{i+1}} ! \Gamma(v) n(v,t) \, \mathrm{d} v = \Gamma(\xi) \int_{v_i}^{v_{i+1}} ! n(v,t) \, \mathrm{d} v = \Gamma(\xi) N_i(t)
-\end{gather}</p>
+<script type="math/tex; mode=display">\begin{gather}
+\int_{v_i}^{v_{i+1}} \! \Gamma(v) n(v,t) \, \mathrm{d} v = \Gamma(\xi) \int_{v_i}^{v_{i+1}} \! n(v,t) \, \mathrm{d} v = \Gamma(\xi) N_i(t)
+\end{gather}</script>
 
 <p>for some $\xi \in [v_i, v_{i+1})$. For the fourth term we need to apply mean value theorem for both integrals.</p>
 
@@ -257,10 +256,10 @@ i.e. the second and the fourth terms. For the first term it gives us:</p>
 
 <h2 id="numerical-experiments">Numerical experiments</h2>
 
-<p>In this section we will draw some comparisons on log-log plots between
-analytical and numerical solutions. I am using <code>ggplot</code> style with some minor
-alterations. To minimize code duplication I create two functions.
-<code>pbe_solutions</code> is assumed here to be a dictionary holding grid sizes.</p>
+<p>In this section we will draw some comparisons on log-log and semilog plots that
+will show analytical and numerical solutions. I am using <code>ggplot</code> style with
+some minor alterations. To minimize code duplication I create two functions.
+<code>pbe_solutions</code> variable is assumed here to be a dictionary holding grid sizes.</p>
 
 <p>Note that in function <code>plot_pbe_solutions</code> in order to reconstruct the number
 density function of the continuous formulation you need to divide the values
@@ -772,8 +771,8 @@ comment!),</li>
 found the
 <a href="http://stackoverflow.com/questions/24794024/markdown-list-does-not-indent-using-octopress">instructions</a>
 which fixed it though. During the whole process I was struck by the fact that I
-am overwhelmed by the technological nomenclature. There’s lots of concepts here
-I completely don’t understand or just heard about for the very first time.
+am overwhelmed by the technological nomenclature. There are lots of concepts
+here I completely don’t understand or just heard about for the very first time.
 Hopefully this will become less of an impediment as time goes on.</p>
 
 <p>The first actual post to appear is going to be on the introduction to Kraichnan
