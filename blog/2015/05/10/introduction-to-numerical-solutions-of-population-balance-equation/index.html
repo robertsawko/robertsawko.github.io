@@ -1,24 +1,109 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[A Large Tin Box]]></title>
-  <link href="http://robertsawko.github.io/atom.xml" rel="self"/>
-  <link href="http://robertsawko.github.io/"/>
-  <updated>2015-05-10T19:51:27+01:00</updated>
-  <id>http://robertsawko.github.io/</id>
-  <author>
-    <name><![CDATA[Robert Sawko]]></name>
-    
-  </author>
-  <generator uri="http://octopress.org/">Octopress</generator>
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Introduction to Numerical Solutions of Population Balance Equation - A Large Tin Box</title>
+  <meta name="author" content="Robert Sawko">
 
   
-  <entry>
-    <title type="html"><![CDATA[Introduction to Numerical Solutions of Population Balance Equation]]></title>
-    <link href="http://robertsawko.github.io/blog/2015/05/10/introduction-to-numerical-solutions-of-population-balance-equation/"/>
-    <updated>2015-05-10T16:04:58+01:00</updated>
-    <id>http://robertsawko.github.io/blog/2015/05/10/introduction-to-numerical-solutions-of-population-balance-equation</id>
-    <content type="html"><![CDATA[<h2 id="introduction">Introduction</h2>
+  <meta name="description" content="Introduction Population balance equation (PBE)
+allows us to quantify the change of distribution of a single or a set of
+descriptors in a sample &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://robertsawko.github.io/blog/2015/05/10/introduction-to-numerical-solutions-of-population-balance-equation/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="A Large Tin Box" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">A Large Tin Box</a></h1>
+  
+    <h2>full of forgotten cases</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="robertsawko.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/articles">Articles</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Introduction to Numerical Solutions of Population Balance Equation</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-05-10T16:04:58+01:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>10</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>4:04 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h2 id="introduction">Introduction</h2>
 
 <p><a href="http://en.wikipedia.org/wiki/Population_balance_equation">Population balance equation</a> (PBE)
 allows us to quantify the change of distribution of a single or a set of
@@ -79,7 +164,7 @@ conserved quantity in breakage and coalescence processes. If $v$ is particle
 volume and $n(v,t)$ denotes the number density function then the continuous set
 of PBE are</p>
 
-<script type="math/tex; mode=display">% &lt;![CDATA[
+<script type="math/tex; mode=display">% <![CDATA[
 \begin{align}
 \frac{\partial n(v,t)}{\partial t}
 \, = \, &
@@ -93,7 +178,7 @@ of PBE are</p>
 \\
 & +
 \int_v^\infty \beta(v, v') \Gamma(v') n(v', t) \, \mathrm{d} v',
-\end{align} %]]&gt;</script>
+\end{align} %]]></script>
 
 <p>where $Q$ is coalescence rate, $\Gamma$ is the breakage rate and $\beta$ is the
 daughter particle distribution.</p>
@@ -112,7 +197,7 @@ discretisation became knowns as the method of classes (MOC). The tracked
 quantites $N_k$ representing the number of particles belonging to a particular
 size class. The full discrete equations are then:</p>
 
-<script type="math/tex; mode=display">% &lt;![CDATA[
+<script type="math/tex; mode=display">% <![CDATA[
 \begin{align}
 \frac{\partial N_i(t)}{\partial t}
 \, = \, &
@@ -126,7 +211,7 @@ size class. The full discrete equations are then:</p>
 \\
 & +
 \int_{v_i}^{v_{i+1}} \int_v^\infty \beta(v, v') \Gamma(v') n(v', t) \, \mathrm{d} v'\mathrm{d} v.
-\end{align} %]]&gt;</script>
+\end{align} %]]></script>
 
 <p>At this stage a problem of closure arises. The left hand side represents the
 change of known values of our system but the right hand side contains integrals
@@ -411,7 +496,7 @@ produced in the breakage.</p>
 
 <p>and Ziff and McGrady report the solution to this equation (case 4) for a <em>monodisperse</em> configuration i.e. $n(v, 0) = \delta(v - v_0)$ where $v_0$ is fixed. In discrete formulation this will resolve to $N_k(0) = 1$ for $k$ being an interval such that $v_0 \in [v_k, v_{k+1})$.</p>
 
-<script type="math/tex; mode=display">% &lt;![CDATA[
+<script type="math/tex; mode=display">% <![CDATA[
 \begin{equation}
 n(v, t) = \left\{
 \begin{array}{lr}
@@ -422,7 +507,7 @@ n(v, t) = \left\{
 0 & v > v_0
 \end{array}
 \right.
-\end{equation} %]]&gt;</script>
+\end{equation} %]]></script>
 
 <p>Here’s my implementation of this solution with the use of neat <code>piecewise</code>
 function. I wasn’t sure how to represent Dirac’s delta in the formulation.</p>
@@ -511,7 +596,7 @@ for 10s. We take 10, 20, 40, 80 and 160 classes for that setup.</p>
 </span><span class="line"><span class="p">)</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div>
 
-<p><img class="center" src="http://robertsawko.github.io/images/intro_pbe-pure_breakup_N.png" title="'Pure breakup total number solution'" /></p>
+<p><img class="center" src="/images/intro_pbe-pure_breakup_N.png" title="'Pure breakup total number solution'" /></p>
 
 <p>A clear convergence to the analytical solution is visible. The figure reveals
 that the numerical solutions contain fewer drops then the analytical solutions.
@@ -531,7 +616,7 @@ case.</p>
 </span><span class="line"><span class="p">)</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div>
 
-<p><img class="center" src="http://robertsawko.github.io/images/intro_pbe-pure_breakup_pbe.png" title="'Pure breakup number density solution'" /></p>
+<p><img class="center" src="/images/intro_pbe-pure_breakup_pbe.png" title="'Pure breakup number density solution'" /></p>
 
 <p>Again we observe that there’s a clear convergence to analytical solution. The
 visualisation of the right end of the analytical solution is somewhat
@@ -651,7 +736,7 @@ passed. <code>vmax</code> is set only for visualisation purpose.</p>
 </span><span class="line"><span class="p">)</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div>
 
-<p><img class="center" src="http://robertsawko.github.io/images/intro_pbe-pure_coalescence_N.png" title="'Pure coalescence total number solution'" /></p>
+<p><img class="center" src="/images/intro_pbe-pure_coalescence_N.png" title="'Pure coalescence total number solution'" /></p>
 
 <div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
@@ -665,7 +750,7 @@ passed. <code>vmax</code> is set only for visualisation purpose.</p>
 </span><span class="line">    <span class="p">)</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div>
 
-<p><img class="center" src="http://robertsawko.github.io/images/intro_pbe-pure_coalescence_pbe.png" title="'Pure coalescence number density solution'" /></p>
+<p><img class="center" src="/images/intro_pbe-pure_coalescence_pbe.png" title="'Pure coalescence number density solution'" /></p>
 
 <h2 id="summary">Summary</h2>
 
@@ -700,85 +785,101 @@ though could be used as a validation test.</p>
 <li><span id="Ziff1985">Ziff, R. M., &amp; McGrady, E. D. (1985). The kinetics of cluster fragmentation and depolymerisation. <i>Journal Of Physics A: Mathematical and General</i>, <i>18</i>(15), 3027. Retrieved from http://stacks.iop.org/0305-4470/18/i=15/a=026</span></li>
 <li><span id="Kumar1996">Kumar, S., &amp; Ramkrishna, D. (1996). On the solution of population balance equations by discretization—I. A fixed pivot technique. <i>Chemical Engineering Science</i>, <i>51</i>(8), 1311–1332.</span></li>
 <li><span id="Solsvik2015">Solsvik, J., &amp; Jakobsen, H. A. (2015). The Foundation of the Population Balance Equation: A Review. <i>Journal Of Dispersion Science and Technology</i>, <i>36</i>(4), 510–520. doi:10.1080/01932691.2014.909318</span></li></ol>
-]]></content>
-  </entry>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
   
-  <entry>
-    <title type="html"><![CDATA[It Is Alive!]]></title>
-    <link href="http://robertsawko.github.io/blog/2015/04/30/it-is-alive/"/>
-    <updated>2015-04-30T20:41:25+01:00</updated>
-    <id>http://robertsawko.github.io/blog/2015/04/30/it-is-alive</id>
-    <content type="html"><![CDATA[<p>This is my first post using <a href="http://octopress.org/">octopress</a> i.e. a git based
-blogging engine. At the moment I am just testing various functionalities. Is
-markdown <strong>bold</strong> working? Do we have MathJax?</p>
 
-<h2 id="the-quest-for-mathjax">The quest for MathJax</h2>
+<span class="byline author vcard">Posted by <span class="fn">Robert Sawko</span></span>
 
-<p>Let’s try the Boltzmann equation:</p>
+      
 
-<script type="math/tex; mode=display">\begin{equation}
-\frac{\partial f}{\partial t} 
-+ \frac{\mathbf{p}}{m} \cdot \nabla f
-+ \mathbf{F} \cdot \frac{\partial f}{\partial \mathbf{p}}
-=
-{\left(\frac{\partial f}{\partial t} \right)}_{\mathrm{collision}}
-\end{equation}.</script>
 
-<p>To test inline maths we will use $x^2+y^2=z^2$ where $x$, $y$ are catheti
-and $z$ is a hypotenuse of a right triangle.</p>
 
-<p>It works! Although to be truthful it did not work out-of-the-box. I had to
-fight a small battle messing around with some files. At the moment I am using
-<code>kramdown</code> and CDN according to advice given on this
-<a href="http://www.idryman.org/blog/2012/03/10/writing-math-equations-on-octopress/">post</a>.
-The only difference is that my <em>javascript</em> code landed in</p>
 
-<p><code>source/_includes/custom/head.html</code></p>
+<time class='entry-date' datetime='2015-05-10T16:04:58+01:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>10</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>4:04 pm</span></time>
+      
 
-<p>as it is being sourced by the main head anyway. This looks like a slightly
-cleaner solution.</p>
 
-<p>But that wasn’t enough! After uploading the files on Github Pages they wouldn’t
-display even though I could see them in the preview mode. The reason was the
-HTTP secure access to MathJax. It’s important that CDN address contains <code>https</code>
-rather than <code>http</code>. There’s a
-<a href="http://docs.mathjax.org/en/latest/start.html#secure-cdn-access">passage</a> in
-MathJax documentation about it. So much for “setting up a scientific blog in
-half-an-hour”, but I’ve learnt a few things definitely.</p>
-
-<p>MathJax test passed.</p>
-
-<h2 id="the-plan">The plan…</h2>
-
-<p>… is to run this as a little experiment in curiosity, amusement and memory of
-all these little intellectual pursuits which somehow get lost in the daily
-routine of existence. I would like to focus here on the work I do related to
-fluid dynamics and coding but other content may appear too. The first few steps
-though I need make is to investigate:</p>
-
-<ul>
-  <li>adding sub-pages,</li>
-  <li>add contact info,</li>
-  <li>test iPython integration,</li>
-  <li>check comment functionalities (in the unlikely case someone wants to
-comment!),</li>
-  <li>theme customization.</li>
-</ul>
-
-<p>Interestingly at this stage the lists were <strong>not</strong> indented properly. Again, I
-found the
-<a href="http://stackoverflow.com/questions/24794024/markdown-list-does-not-indent-using-octopress">instructions</a>
-which fixed it though. During the whole process I was struck by the fact that I
-am overwhelmed by the technological nomenclature. There’s lots of concepts here
-I completely don’t understand or just heard about for the very first time.
-Hopefully this will become less of an impediment as time goes on.</p>
-
-<p>The first actual post to appear is going to be on the introduction to Kraichnan
-theory of turbulence which I am reading about at the moment. Will try to
-reproduce some of the results and test iPython integration. Future posts may
-cover some adventures in population balance modelling, partial differential
-with stochastic inputs and fluid dynamics problems.</p>
-]]></content>
-  </entry>
+    </p>
+    
+      <div class="sharing">
   
-</feed>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://robertsawko.github.io/blog/2015/05/10/introduction-to-numerical-solutions-of-population-balance-equation/" data-via="" data-counturl="http://robertsawko.github.io/blog/2015/05/10/introduction-to-numerical-solutions-of-population-balance-equation/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/04/30/it-is-alive/" title="Previous Post: It is alive!">&laquo; It is alive!</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/05/10/introduction-to-numerical-solutions-of-population-balance-equation/">Introduction to Numerical Solutions of Population Balance Equation</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/04/30/it-is-alive/">It Is Alive!</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - Robert Sawko -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
