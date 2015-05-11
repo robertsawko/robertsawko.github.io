@@ -658,21 +658,25 @@ n(v, 0) = \frac{N_0}{v_2} \left(\frac{v}{v_2}\right) e^{-v/v_2}.
 <p>It is important to observe here - and this observation cost me three hours of
 my life - that the mean volume from that distribution is tied to $v_2$ by
 $v_0 = 2v_2$. The analytical solution given by Scott for the total number is
-then:
-<script type="math/tex">\begin{equation}
+then:</p>
+
+<script type="math/tex; mode=display">\begin{align}
 N(t) = \frac{N_0}{T + 2},
 \\
 T = C N_0 t,
-\end{equation}</script>
-where $T$ is the non-dimensional time. For the number density function the
+\end{align}</script>
+
+<p>where $T$ is the non-dimensional time. For the number density function the
 solution is:</p>
 
-<p><script type="math/tex">\begin{equation}
+<script type="math/tex; mode=display">\begin{equation}
 n(v,t) = \frac{N_0}{v_0}
 \frac{4 e^{-2\xi}}{\xi (T+2)^2}
 \sum_{k=1}^{\infty} \frac{(2\xi)^{2(k+1)}}{\Gamma(2 (k+1))} \left(\frac{T}{T+2}\right)^k,
 \end{equation}</script>
-where $\xi = v / v_0$. Below my python implementation of this.</p>
+
+<p>where $\xi = v / v_0$. Below my python implementation of this for a fixed
+number of expansion terms.</p>
 
 <div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
