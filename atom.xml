@@ -4,7 +4,7 @@
   <title><![CDATA[A Large Tin Box]]></title>
   <link href="http://robertsawko.github.io/atom.xml" rel="self"/>
   <link href="http://robertsawko.github.io/"/>
-  <updated>2015-05-10T22:04:58+01:00</updated>
+  <updated>2015-05-11T18:58:35+01:00</updated>
   <id>http://robertsawko.github.io/</id>
   <author>
     <name><![CDATA[Robert Sawko]]></name>
@@ -406,10 +406,13 @@ produced in the breakage.</p>
 <p>The continuous equations then takes the form</p>
 
 <script type="math/tex; mode=display">\begin{gather}
-\frac{\partial n(v,t)}{\partial t} = -v^2 n(v,t)  + 2\int_v^ \infty v' n(v', t) \mathrm{d} v'
+\frac{\partial n(v,t)}{\partial t} = -v^2 n(v,t)  + 2\int_v^ \infty v' n(v', t) \mathrm{d} v'.
 \end{gather}</script>
 
-<p>and Ziff and McGrady report the solution to this equation (case 4) for a <em>monodisperse</em> configuration i.e. $n(v, 0) = \delta(v - v_0)$ where $v_0$ is fixed. In discrete formulation this will resolve to $N_k(0) = 1$ for $k$ being an interval such that $v_0 \in [v_k, v_{k+1})$.</p>
+<p>Ziff and McGrady report the solution to a <em>monodisperse</em> configuration i.e.
+$n(v, 0) = \delta(v - v_0)$ where $v_0$ is fixed. In discrete formulation this
+will resolve to $N_k(0) = 1$ for $k$ being an interval such that $v_0 \in [v_k,
+v_{k+1})$. The solution takes the form:</p>
 
 <script type="math/tex; mode=display">% &lt;![CDATA[
 \begin{equation}
@@ -424,8 +427,9 @@ n(v, t) = \left\{
 \right.
 \end{equation} %]]&gt;</script>
 
-<p>Here’s my implementation of this solution with the use of neat <code>piecewise</code>
-function. I wasn’t sure how to represent Dirac’s delta in the formulation.</p>
+<p>Here’s my implementation of this solution with the use of neat
+<code>numpy.piecewise</code> function. I wasn’t sure how to represent Dirac’s delta in the
+formulation.</p>
 
 <div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
@@ -448,10 +452,11 @@ function. I wasn’t sure how to represent Dirac’s delta in the formulation.</
 </span><span class="line">        <span class="p">]</span>
 </span><span class="line">    <span class="p">)</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div>
-<p>In order to validate the total number of particles we have integrate that solution over all sizes.</p>
+<p>In order to validate the total number of particles we have to integrate that
+solution over all sizes.</p>
 
 <script type="math/tex; mode=display">\begin{equation}
-N = \int_0^\infty \! n(v, t) \, \mathrm{d} v
+N(t) = \int_0^\infty \! n(v, t) \, \mathrm{d} v
 =
 e^{-tv_0^2} + 
 \int_0^\infty 2tv_0 e^{-tv^2} \, \mathrm{d} v
@@ -485,10 +490,8 @@ for 10s. We take 10, 20, 40, 80 and 160 classes for that setup.</p>
 <span class="line-number">11</span>
 <span class="line-number">12</span>
 <span class="line-number">13</span>
-<span class="line-number">14</span>
 </pre></td><td class="code"><pre><code class="python"><span class="line"><span class="n">v0</span><span class="o">=</span><span class="mf">1.0</span>
 </span><span class="line"><span class="n">time</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">)</span>
-</span><span class="line"><span class="n">v</span> <span class="o">=</span> <span class="mf">1.0</span>
 </span><span class="line"><span class="n">grids</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">160</span><span class="p">]</span>
 </span><span class="line">
 </span><span class="line"><span class="n">breakup_solutions</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
@@ -556,18 +559,32 @@ Q(v, v') = C
 <p>and the remaining kernels are zero.</p>
 
 <p>Also, Scott assumed two types of initial conditions a dual-dispersed case with
-a sum of two Dirac’s deltas and a Gaussian-like distribution given by</p>
+a sum of two Dirac’s deltas and a Gaussian-like distribution. In this study we
+will only use the latter. We use a special form of it which corresponds to
+setting $\nu=1$ and $a=1$ from Scott’s formulation:</p>
 
 <script type="math/tex; mode=display">\begin{equation}
-n(v, 0) = \frac{N_0}{v_2} \left(\frac{v}{v_2}\right) e^{-v/v_2}
+n(v, 0) = \frac{N_0}{v_2} \left(\frac{v}{v_2}\right) e^{-v/v_2}.
 \end{equation}</script>
 
 <p>It is important to observe here - and this observation cost me three hours of
-my life - that the mean volume from that distribution is tied to $v_2$ by:</p>
-
-<script type="math/tex; mode=display">\begin{equation}
-v_0 = 2v_2
+my life - that the mean volume from that distribution is tied to $v_2$ by
+$v_0 = 2v_2$. The analytical solution given by Scott for the total number is
+then:
+<script type="math/tex">\begin{equation}
+N(t) = \frac{N_0}{T + 2},
+\\
+T = C N_0 t,
 \end{equation}</script>
+where $T$ is the non-dimensional time. For the number density function the
+solution is:</p>
+
+<p><script type="math/tex">\begin{equation}
+n(v,t) = \frac{N_0}{v_0}
+\frac{4 e^{-2\xi}}{\xi (T+2)^2}
+\sum_{k=1}^{\infty} \frac{(2\xi)^{2(k+1)}}{\Gamma(2 (k+1))} \left(\frac{T}{T+2}\right)^k,
+\end{equation}</script>
+where $\xi = v / v_0$. Below my python implementation of this.</p>
 
 <div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
