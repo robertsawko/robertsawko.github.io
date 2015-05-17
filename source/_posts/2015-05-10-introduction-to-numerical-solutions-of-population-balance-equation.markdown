@@ -42,7 +42,7 @@ The exercise is performed in order to develop a calculation tool with simple
 python interface. The tests were a side product of other projects that I am
 running at the moment.
 
-
+<!-- more -->
 ``` python
     from numpy import arange, zeros, exp, trapz, piecewise, linspace
     from scipy.integrate import odeint
@@ -126,14 +126,15 @@ Hidy and Brook propose a uniform discretisation of the internal space. We fix
 the smallest drop size to $v_1$ and a fixed number of classes. Class $k$
 represent then the size $v_k = kv_1$.
 
-We will now turn to the closure problem and applying [mean value
-theorem](https://en.wikipedia.org/wiki/Mean_value_theorem#Mean_value_theorems_for_integration])
+We will now turn to the closure problem and applying [mean value theorem](https://en.wikipedia.org/wiki/Mean_value_theorem#Mean_value_theorems_for_integration])
 to the right hand side terms. For simplicity we will do only the breakage terms
 i.e. the second and the fourth terms. For the first term it gives us:
 
+$$
 \begin{gather}
 \int_{v_i}^{v_{i+1}} \! \Gamma(v) n(v,t) \, \mathrm{d} v = \Gamma(\xi) \int_{v_i}^{v_{i+1}} \! n(v,t) \, \mathrm{d} v = \Gamma(\xi) N_i(t)
 \end{gather}
+$$
 
 for some $\xi \in [v_i, v_{i+1})$. For the fourth term we need to apply mean value theorem for both integrals.
 
@@ -210,10 +211,10 @@ where the indexed values are simply the values of kernel functions at the left s
 
 ## Numerical experiments
 
-In this section we will draw some comparisons on log-log plots between
-analytical and numerical solutions. I am using `ggplot` style with some minor
-alterations. To minimize code duplication I create two functions.
-`pbe_solutions` is assumed here to be a dictionary holding grid sizes.
+In this section we will draw some comparisons on log-log and semilog plots that
+will show analytical and numerical solutions. I am using `ggplot` style with
+some minor alterations. To minimize code duplication I create two functions.
+`pbe_solutions` variable is assumed here to be a dictionary holding grid sizes.
 
 Note that in function `plot_pbe_solutions` in order to reconstruct the number
 density function of the continuous formulation you need to divide the values
@@ -307,11 +308,14 @@ The continuous equations then takes the form
 
 $$
 \begin{gather}
-\frac{\partial n(v,t)}{\partial t} = -v^2 n(v,t)  + 2\int_v^ \infty v' n(v', t) \mathrm{d} v'
+\frac{\partial n(v,t)}{\partial t} = -v^2 n(v,t)  + 2\int_v^ \infty v' n(v', t) \mathrm{d} v'.
 \end{gather}
 $$
 
-and Ziff and McGrady report the solution to this equation (case 4) for a *monodisperse* configuration i.e. $n(v, 0) = \delta(v - v_0)$ where $v_0$ is fixed. In discrete formulation this will resolve to $N_k(0) = 1$ for $k$ being an interval such that $v_0 \in [v_k, v_{k+1})$.
+Ziff and McGrady report the solution to a *monodisperse* configuration i.e.
+$n(v, 0) = \delta(v - v_0)$ where $v_0$ is fixed. In discrete formulation this
+will resolve to $N_k(0) = 1$ for $k$ being an interval such that $v_0 \in [v_k,
+v_{k+1})$. The solution takes the form:
 
 $$
 \begin{equation}
@@ -327,8 +331,9 @@ n(v, t) = \left\{
 \end{equation}
 $$
 
-Here's my implementation of this solution with the use of neat `piecewise`
-function. I wasn't sure how to represent Dirac's delta in the formulation.
+Here's my implementation of this solution with the use of neat
+`numpy.piecewise` function. I wasn't sure how to represent Dirac's delta in the
+formulation.
 
 ```python
     def zm_pbe_solution(x, t, v0):
@@ -342,11 +347,12 @@ function. I wasn't sure how to represent Dirac's delta in the formulation.
             ]
         )
 ```
-In order to validate the total number of particles we have integrate that solution over all sizes. 
+In order to validate the total number of particles we have to integrate that
+solution over all sizes. 
 
 $$
 \begin{equation}
-N = \int_0^\infty \! n(v, t) \, \mathrm{d} v
+N(t) = \int_0^\infty \! n(v, t) \, \mathrm{d} v
 =
 e^{-tv_0^2} + 
 \int_0^\infty 2tv_0 e^{-tv^2} \, \mathrm{d} v
@@ -369,7 +375,6 @@ for 10s. We take 10, 20, 40, 80 and 160 classes for that setup.
 ```python
     v0=1.0
     time = arange(0.0, 10.0, 0.001)
-    v = 1.0
     grids = [10, 20, 40, 80, 160]
     
     breakup_solutions = dict()
@@ -434,24 +439,42 @@ $$
 and the remaining kernels are zero.
 
 Also, Scott assumed two types of initial conditions a dual-dispersed case with
-a sum of two Dirac's deltas and a Gaussian-like distribution given by
+a sum of two Dirac's deltas and a Gaussian-like distribution. In this study we
+will only use the latter. We use a special form of it which corresponds to
+setting $\nu=1$ and $a=1$ from Scott's formulation:
 
 $$
 \begin{equation}
-n(v, 0) = \frac{N_0}{v_2} \left(\frac{v}{v_2}\right) e^{-v/v_2}
+n(v, 0) = \frac{N_0}{v_2} \left(\frac{v}{v_2}\right) e^{-v/v_2}.
 \end{equation}
 $$
 
 It is important to observe here - and this observation cost me three hours of
-my life - that the mean volume from that distribution is tied to $v_2$ by:
+my life - that the mean volume from that distribution is tied to $v_2$ by
+$v_0 = 2v_2$. The analytical solution given by Scott for the total number is
+then:
 
+$$
+\begin{align}
+N(t) = \frac{N_0}{T + 2},
+\\
+T = C N_0 t,
+\end{align}
+$$
+
+where $T$ is the non-dimensional time. For the number density function the
+solution is:
 
 $$
 \begin{equation}
-v_0 = 2v_2
+n(v,t) = \frac{N_0}{v_0}
+\frac{4 e^{-2\xi}}{\xi (T+2)^2}
+\sum_{k=1}^{\infty} \frac{(2\xi)^{2(k+1)}}{\Gamma(2 (k+1))} \left(\frac{T}{T+2}\right)^k,
 \end{equation}
 $$
 
+where $\xi = v / v_0$. Below my python implementation of this for a fixed
+number of expansion terms.
 
 ```python
     from scipy.special import gamma
@@ -544,4 +567,4 @@ The page acts as demonstration of the code that is being developed in [pyfd repo
 
 ## References
 
-{% bibliography %}
+{% bibliography -f pbe %}

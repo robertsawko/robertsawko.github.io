@@ -67,8 +67,8 @@ Interestingly at this stage the lists were **not** indented properly. Again, I
 found the
 [instructions](http://stackoverflow.com/questions/24794024/markdown-list-does-not-indent-using-octopress)
 which fixed it though. During the whole process I was struck by the fact that I
-am overwhelmed by the technological nomenclature. There's lots of concepts here
-I completely don't understand or just heard about for the very first time.
+am overwhelmed by the technological nomenclature. There are lots of concepts
+here I completely don't understand or just heard about for the very first time.
 Hopefully this will become less of an impediment as time goes on.
 
 The first actual post to appear is going to be on the introduction to Kraichnan
