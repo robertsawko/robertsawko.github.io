@@ -4,7 +4,7 @@
   <title><![CDATA[A Large Tin Box]]></title>
   <link href="http://robertsawko.github.io/atom.xml" rel="self"/>
   <link href="http://robertsawko.github.io/"/>
-  <updated>2015-05-11T19:01:36+01:00</updated>
+  <updated>2015-05-17T13:27:44+01:00</updated>
   <id>http://robertsawko.github.io/</id>
   <author>
     <name><![CDATA[Robert Sawko]]></name>
@@ -53,6 +53,7 @@ testing reported in paper by Kumar and Ramkrishna (1996).</p>
 python interface. The tests were a side product of other projects that I am
 running at the moment.</p>
 
+<!-- more -->
 <div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
 <span class="line-number">3</span>
